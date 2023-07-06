@@ -6,8 +6,8 @@ createApp({
 			contacts: [
 				{
 				name: 'Michele',
-				avatar: './img/avatar_1.png',
-				visible: true,
+				avatar: './img/avatar_1.jpg',
+				visible: false,
 					messages: [
 					{
 					date: '10/01/2020 15:30:55',
@@ -28,8 +28,8 @@ createApp({
 				},
 				{
 				name: 'Fabio',
-				avatar: './img/avatar_2.png',
-				visible: true,
+				avatar: 'img/avatar_2.jpg',
+				visible: false,
 					messages: [
 					{
 					date: '20/03/2020 16:30:00',
@@ -50,8 +50,8 @@ createApp({
 				},
 				{
 				name: 'Samuele',
-				avatar: './img/avatar_3.png',
-				visible: true,
+				avatar: 'img/avatar_3.jpg',
+				visible: false,
 					messages: [
 					{
 					date: '28/03/2020 10:10:40',
@@ -72,8 +72,8 @@ createApp({
 				},
 				{
 				name: 'Alessandro B.',
-				avatar: './img/avatar_4.png',
-				visible: true,
+				avatar: 'img/avatar_4.jpg',
+				visible: false,
 					messages: [
 					{
 					date: '10/01/2020 15:30:55',
@@ -89,8 +89,8 @@ createApp({
 				},
 				{
 				name: 'Alessandro L.',
-				avatar: './img/avatar_5.png',
-				visible: true,
+				avatar: 'img/avatar_5.jpg',
+				visible: false,
 					messages: [
 					{
 					date: '10/01/2020 15:30:55',
@@ -106,8 +106,8 @@ createApp({
 				},
 				{
 				name: 'Claudia',
-				avatar: './img/avatar_5.png',
-				visible: true,
+				avatar: 'img/avatar_5.jpg',
+				visible: false,
 					messages: [
 					{
 					date: '10/01/2020 15:30:55',
@@ -128,8 +128,8 @@ createApp({
 				},
 				{
 				name: 'Federico',
-				avatar: './img/avatar_7.png',
-				visible: true,
+				avatar: 'img/avatar_7.jpg',
+				visible: false,
 					messages: [
 					{
 					date: '10/01/2020 15:30:55',
@@ -145,8 +145,8 @@ createApp({
 				},
 				{
 				name: 'Davide',
-				avatar: './img/avatar_8.png',
-				visible: true,
+				avatar: 'img/avatar_8.jpg',
+				visible: false,
 					messages: [
 					{
 					date: '10/01/2020 15:30:55',
@@ -165,7 +165,16 @@ createApp({
 					}
 					],
 				}
-			]
+			],
+
 		}
-	}
+	},
+	computed: {
+		lastMessages() {
+		  return this.contacts.map(contact => {
+			const lastMessage = contact.messages[contact.messages.length - 1];
+			return lastMessage.message;
+		  });
+	}},
+	
 }).mount('#app');

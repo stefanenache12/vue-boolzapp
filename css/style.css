@@ -11,4 +11,161 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background: rgb(218,219,211);
+    background: linear-gradient(0deg, rgba(218,219,211,1) 80%, rgba(0,150,136,1) 80%);
+    width: 100%;
+    height: 100vh;
+    padding: 1.5625rem
 }
+
+h5 {
+    font-size: small;
+    font-weight: 500;
+}
+
+.main {
+    height: calc(100vh - 3.125rem);
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    
+}
+
+/* LEFT SIDE*/
+
+.left-side {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    
+}
+
+.client-info {
+    background-color: #EAEAEA;
+    border-right: 1px solid #D9DBD4;
+}
+
+.client-info .fa-solid {
+    color: #B1B1B1;
+}
+
+.client-info img {
+    max-width: 3.125rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.notification {
+    height: 4.5rem;
+    background-color: #8EDAFC;
+    padding: .3125rem;
+    display: flex;
+    align-items: center;
+}
+
+.notification a {
+    color: black;
+}
+
+.bell {
+    background-color: white;
+    border-radius: 50%;
+    color: #8EDAFC;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    padding: .125rem;
+    border-top: 1px solid #D9DBD4;
+    position: relative;
+    cursor: pointer;
+}
+
+li img {
+    max-width: 3.125rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.contact-info {
+    padding-left: 1.5625rem;
+}
+
+.last-message {
+    font-size: xx-small;
+    font-weight: 300;
+}
+
+.time-message {
+    position: absolute;
+    top: .625rem;
+    right: 0;
+    font-size: xx-small;
+    font-weight: 300;
+    padding-right: .625rem;
+}
+
+/* RIGHT SIDE*/
+.right-side {
+    width: 60%;
+    height: 100%;
+    background-image: url(https://img.freepik.com/free-photo/beautiful-aerial-shot-fronalpstock-mountains-switzerland-beautiful-pink-blue-sky_181624-9315.jpg?w=996&t=st=1688647902~exp=1688648502~hmac=92986993b033f04e42995a98b901c226e66f08cafd07f6972130f0d06315c3fa);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.active-contact {
+    height: 66px;
+    width: 100%;
+    background-color: #EAEAEA;
+}
+
+.send-message {
+    height: 4.125rem;
+    width: 100%;
+    background-color: #EAEAEA;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.conversation {
+    width: 100%;
+    height: calc(100% - 8.25rem);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.sent {
+    text-align: end;
+    background-color: #D5F9BA;
+    min-width: 6.25rem;
+    width: fit-content;
+    margin: .3125rem;
+    padding: .625rem;
+    border-radius: .625rem;
+}
+
+.received {
+    text-align: start;
+    background-color: #FFFFFF;
+    min-width: 6.25rem;
+    width: fit-content;
+    margin: .3125rem;
+    padding: .625rem;
+    border-radius: .625rem;
+}
+
+
+
+
