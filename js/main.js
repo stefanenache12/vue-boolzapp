@@ -166,7 +166,8 @@ createApp({
 					],
 				}
 			],
-
+			selectedContact: null,
+			
 		}
 	},
 	computed: {
@@ -176,5 +177,6 @@ createApp({
 			return lastMessage.message;
 		  });
 	}},
+	
 	
 }).mount('#app');

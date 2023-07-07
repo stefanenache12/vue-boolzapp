@@ -76,7 +76,9 @@
 
                 <div>
                     <ul>
-                        <li v-for="contact,index in contacts">
+                        <li v-for="contact,index in contacts"
+                        @click="selectedContact = contact"
+                        :class="{ active: contact === selectedContact }">
 
                             <div>
                                 <img :src="contact.avatar" alt="">
@@ -108,42 +110,40 @@
 
             <div class="right-side">
 
-                <div class="active-contact">
+                <div class="active-contact d-flex">
+
+                    <div class="d-flex align-items-center" v-if="selectedContact">
+                        <div>
+                            <img :src="selectedContact.avatar" alt="">
+                        </div>
+                        <div>
+                            <h6>
+                                {{selectedContact.name}}
+    
+                            </h6>
+
+                            <h6>
+                                Ultimo acesso oggi alle 12:00
+                            </h6>
+                        </div>
+                        
+                    </div>
 
                 </div>
 
                 <div class="conversation">
 
-                    <div class="d-flex justify-content-end">
-                        <div class="sent">
-                            <h6>
-                                ciao
-                            </h6>
+                    <div v-if="selectedContact" class="conversation-container d-grid">
+                        <div v-for="message in selectedContact.messages"
+                        :class="{ received: message.status === 'received', sent: message.status === 'sent' }">
+                          <p>
+                            {{ message.message }}</p>
                         </div>
                     </div>
-
-                    <div class="d-flex justify-content-end">
-                        <div class="sent">
-                            <h6>
-                                Come Stai?
-                            </h6>
-                        </div>
+                    <div v-else>
+                        <p>No contact selected</p>
                     </div>
-                   
-
-                    <div class="received">
-                        <h6>
-                            ciao
-                        </h6>
-                    </div>
-
-                    
-                    <div class="received">
-                        <h6>
-                            Ciao tutto bene, te cosa mi racconti?
-                        </h6>
-                    </div>
-
+                      
                 </div>
 
                 <div class="send-message">
@@ -157,9 +157,9 @@
                             <input type="text" class="w-100">
                         </div>
     
-                        <di class="col-auto">
+                        <div class="col-auto">
                             mirc
-                        </di>
+                        </div>
                     </div>
                    
 

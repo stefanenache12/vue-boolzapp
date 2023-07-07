@@ -88,6 +88,14 @@ li {
     cursor: pointer;
 }
 
+li:hover {
+    background-color: #b8b8b7;
+}
+
+.active {
+    background-color: #b8b8b7;
+}
+
 li img {
     max-width: 3.125rem;
     border-radius: 50%;
@@ -128,6 +136,12 @@ li img {
     background-color: #EAEAEA;
 }
 
+.active-contact img {
+    max-width: 40px;
+    border-radius: 3.125rem;
+    object-fit: cover;
+}
+
 .send-message {
     height: 4.125rem;
     width: 100%;
@@ -146,6 +160,10 @@ li img {
     
 }
 
+.conversation-container {
+    position: relative;
+}
+
 .sent {
     text-align: end;
     background-color: #D5F9BA;
@@ -154,6 +172,7 @@ li img {
     margin: .3125rem;
     padding: .625rem;
     border-radius: .625rem;
+    justify-self: end;
 }
 
 .received {
@@ -164,6 +183,7 @@ li img {
     margin: .3125rem;
     padding: .625rem;
     border-radius: .625rem;
+    
 }
 
 
