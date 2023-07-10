@@ -136,12 +136,12 @@
                     <div v-if="selectedContact" class="conversation-container d-grid">
                         <div v-for="message in selectedContact.messages"
                         :class="{ received: message.status === 'received', sent: message.status === 'sent' }">
-                          <p>
-                            {{ message.message }}</p>
+                          <p> {{ message.message }} </p>
+                          <span>{{ extractTimeFromDate(message.date) }}</span>
                         </div>
                     </div>
                     <div v-else>
-                        <p>No contact selected</p>
+                        <p>Select a contact to start a converation</p>
                     </div>
                       
                 </div>
@@ -154,7 +154,9 @@
                         </div>
     
                         <div class="col-9">
-                            <input type="text" class="w-100">
+                            <form action="" @submit.prevent="newMessage()">
+                                <input v-model = "newMessageText"  type="text" class="w-100">
+                            </form>
                         </div>
     
                         <div class="col-auto">

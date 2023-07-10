@@ -7,7 +7,7 @@ createApp({
 				{
 				name: 'Michele',
 				avatar: './img/avatar_1.jpg',
-				visible: false,
+				visible: true,
 					messages: [
 					{
 					date: '10/01/2020 15:30:55',
@@ -167,7 +167,7 @@ createApp({
 				}
 			],
 			selectedContact: null,
-			
+			newMessageText: '', 
 		}
 	},
 	computed: {
@@ -177,6 +177,35 @@ createApp({
 			return lastMessage.message;
 		  });
 	}},
-	
+	methods: {
+		newMessage() {
+			if (this.selectedContact) {
+			  const newMessageText = {
+				date: '10/01/2020 19:51:00',
+				message: this.newMessageText,
+				status: 'sent',
+			  };
+	  
+			  this.selectedContact.messages.push(newMessageText);
+	  
+			  this.newMessageText = '';
+
+			  setTimeout(() => {
+				const response = {
+					date: '10/01/2020 19:51:00',
+					message: 'ok',
+					status: 'received',
+				};
+		
+				this.selectedContact.messages.push(response);
+			  }, 1000);
+			}},
+
+			extractTimeFromDate(dateString) {
+				const timeString = dateString.split(' ')[1];
+				const time = timeString.split(':').slice(0, 2).join(':');
+				return time;
+			},
+	}
 	
 }).mount('#app');
