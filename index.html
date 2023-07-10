@@ -38,7 +38,7 @@
  
     <!--BODY-->
 
-    <body class="debug">
+    <body>
 
         <div id="app" class="main">
 
@@ -70,24 +70,24 @@
                 </div>
 
                 <div>
-                    <button>Cerca</button>
-                    <input type="text" class="w-auto">
+                    <input v-model="searchQuery" type="text" class="w-100" placeholder=" Search contacts...">
                 </div>
 
                 <div>
                     <ul>
-                        <li v-for="contact,index in contacts"
+                        <li
                         @click="selectedContact = contact"
-                        :class="{ active: contact === selectedContact }">
+                        :class="{ active: contact === selectedContact }"
+                        v-for="contact in filteredContacts">
 
                             <div>
                                 <img :src="contact.avatar" alt="">
                             </div>
 
                             <div class="contact-info">
+
                                 <h6>
                                     {{contact.name}}
-
                                 </h6>
 
                                 <h6 class="last-message">
@@ -112,21 +112,30 @@
 
                 <div class="active-contact d-flex">
 
-                    <div class="d-flex align-items-center" v-if="selectedContact">
+                    <div class="d-flex align-items-center position-relative" v-if="selectedContact">
+
                         <div>
                             <img :src="selectedContact.avatar" alt="">
                         </div>
+
                         <div>
                             <h6>
                                 {{selectedContact.name}}
-    
                             </h6>
 
-                            <h6>
+                            <h6 class="small-text">
                                 Ultimo acesso oggi alle 12:00
                             </h6>
+
                         </div>
                         
+                    </div>
+
+                    <div class="icons">
+                        <i class="fa-regular fa-folder"></i>
+                        <i class="fa-regular fa-file"></i>
+                        <i class="fa-solid fa-list-ul"></i>
+                        <i class="fa-regular fa-user-magnifying-glass"></i>
                     </div>
 
                 </div>
@@ -134,14 +143,21 @@
                 <div class="conversation">
 
                     <div v-if="selectedContact" class="conversation-container d-grid">
-                        <div v-for="message in selectedContact.messages"
+
+                        <div 
+                        v-for="message in selectedContact.messages"
                         :class="{ received: message.status === 'received', sent: message.status === 'sent' }">
+
                           <p> {{ message.message }} </p>
-                          <span>{{ extractTimeFromDate(message.date) }}</span>
+
+                          <span  class="small-text">{{ extractTimeFromDate(message.date) }}</span>
+
                         </div>
+
                     </div>
-                    <div v-else>
-                        <p>Select a contact to start a converation</p>
+
+                    <div v-else class=" text-center p-3">
+                        <p>Select a contact to start a conversation</p>
                     </div>
                       
                 </div>
@@ -149,23 +165,21 @@
                 <div class="send-message">
 
                     <div class="row">
-                        <div class="col-auto">
-                            emot
+                        <div class="col-auto p-3">
+                            <i class="fa-regular fa-face-smile"></i>
                         </div>
     
-                        <div class="col-9">
+                        <div class="col-10 p-3">
                             <form action="" @submit.prevent="newMessage()">
-                                <input v-model = "newMessageText"  type="text" class="w-100">
+                                <input v-model = "newMessageText"  type="text" class="w-100 border-0 rounded">
                             </form>
                         </div>
     
-                        <div class="col-auto">
-                            mirc
+                        <div class="col-auto p-3">
+                            <i class="fa-regular fa-microphone"></i>
                         </div>
                     </div>
                    
-
-
                 </div>
 
             </div>

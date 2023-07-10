@@ -168,44 +168,62 @@ createApp({
 			],
 			selectedContact: null,
 			newMessageText: '', 
+			searchQuery: '',
+			
+			
 		}
 	},
+
 	computed: {
+
+		filteredContacts() {
+			const query = this.searchQuery.toLowerCase();
+			return this.contacts.filter(contact => contact.name.toLowerCase().includes(query));
+		},
+		
 		lastMessages() {
 		  return this.contacts.map(contact => {
 			const lastMessage = contact.messages[contact.messages.length - 1];
 			return lastMessage.message;
-		  });
+		});
+
 	}},
+
 	methods: {
+
 		newMessage() {
 			if (this.selectedContact) {
 			  const newMessageText = {
 				date: '10/01/2020 19:51:00',
 				message: this.newMessageText,
 				status: 'sent',
-			  };
+			};
 	  
-			  this.selectedContact.messages.push(newMessageText);
+			this.selectedContact.messages.push(newMessageText);
 	  
-			  this.newMessageText = '';
+			this.newMessageText = '';
 
-			  setTimeout(() => {
+			setTimeout(() => {
 				const response = {
 					date: '10/01/2020 19:51:00',
 					message: 'ok',
 					status: 'received',
 				};
-		
+			
 				this.selectedContact.messages.push(response);
-			  }, 1000);
-			}},
+
+			}, 1000)}
+			
+			},
 
 			extractTimeFromDate(dateString) {
 				const timeString = dateString.split(' ')[1];
 				const time = timeString.split(':').slice(0, 2).join(':');
 				return time;
 			},
-	}
-	
-}).mount('#app');
+
+			searchContacts() {
+				if (this.searchQuery.length >= 3) {
+				}
+			}
+}}).mount('#app');

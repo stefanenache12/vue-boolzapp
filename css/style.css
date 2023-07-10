@@ -23,6 +23,11 @@ h5 {
     font-weight: 500;
 }
 
+.small-text {
+    font-size: xx-small;
+    font-weight: 500;
+}
+
 .main {
     height: calc(100vh - 3.125rem);
     width: 70%;
@@ -157,6 +162,7 @@ li img {
     height: calc(100% - 8.25rem);
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
     
 }
 
@@ -170,22 +176,41 @@ li img {
     min-width: 6.25rem;
     width: fit-content;
     margin: .3125rem;
-    padding: .625rem;
+    padding: .3125rem;
     border-radius: .625rem;
     justify-self: end;
 }
 
 .received {
-    text-align: start;
+    text-align: end;
     background-color: #FFFFFF;
     min-width: 6.25rem;
     width: fit-content;
     margin: .3125rem;
-    padding: .625rem;
+    padding: .3125rem;
     border-radius: .625rem;
     
 }
 
+.sent p {
+    margin: 0;
+}
 
+.received p {
+    margin: 0;
+}
 
+.icons {
+    position: absolute;
+    top: .9375rem;
+    right: .625rem;
+}
 
+.icons * {
+    padding: .3125rem;
+    color: #B1B1B1;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
